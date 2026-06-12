@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>ノートンのドーム 〜ニュートン力学は決定論ではない？〜</title>
+
+  <link rel="stylesheet" href="dist/reset.css">
+  <link rel="stylesheet" href="dist/reveal.css">
+  <link rel="stylesheet" href="dist/theme/sky.css">
+  <link rel="stylesheet" href="styles/custom-style.css">
+
+  <!-- Add KaTeX CSS and JS -->
+  <link rel="stylesheet" href="plugin/math/katex.min.css">
+  <script src="plugin/math/katex.js"></script>
+  <script src="plugin/math/math.js"></script>
+
+  <!-- Theme used for syntax highlighted code -->
+  <link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section data-markdown data-separator="---">
+        <textarea data-template>
+
+### ノートンのドーム
+#### 〜ニュートン力学は決定論ではない？〜
+
+<!-- TODO: title image -->
+
+---
+
+### 自己紹介
+
+<div class="profile-container">
+<div class="profile-left">
+
+* さめ(мег-сск)
+  * ⚛️ VRChat物理学集会の主催
+  * 🧑‍🎓 社会人学生として通信制大学在学中
+* 得意分野:
+	* 📸 コンピュータビジョン (画像認識/点群処理)
+	* 🌍 空間情報処理 (地理情報/リモートセンシング)
+	* ☁️ クラウドインフラ設計/IaC (AWS, GCP)
+* 学生時代は地球物理学を専攻
+* 地球観測技術のエンジニアとして活動中
+
+</div>
+
+<div class="profile-right">
+
+<img src="assets/images/icon_circle.png" alt="avatar" height="350px" width="350px">
+
+</div>
+</div>
+
+---
+
+### つかみ
+
+<div class="simple-box">
+
+TODO: フック
+
+* ボールが**理由もきっかけもなく**、好きなタイミングで転がり出す
+* それをニュートン力学は禁止していない
+
+</div>
+
+---
+
+### ただしカオスの話ではありません
+
+TODO: 二重振り子との違いの宣言
+
+* 初期値鋭敏性: 初期値のわずかな差が拡大する (未来は一意)
+* 本テーマ: **初期値を完全に決めても未来が一意に決まらない**
+
+---
+
+### 不可能を起こす丘を設計する
+
+TODO: 逆算設計の物語 (docs/handover.md 2.)
+
+$$ h(r) = -\frac{2b^2}{3g} r^{3/2}, \qquad \ddot{r} = b^2\sqrt{r} $$
+
+---
+
+### 有限時間で頂点に到達できる
+
+TODO: 対比アニメーション (handover.md 4.2)
+
+* ドーム: 有限時間でピタッと静止できる
+* 普通の丘: 永遠に漸近するだけ
+
+---
+
+### 時間を巻き戻すと
+
+TODO: 解の族 (handover.md 4.3)
+
+$$ r(t) = \frac{b^4}{144}(t-T)^4 \quad (t \ge T), \qquad T は任意 $$
+
+---
+
+### 頂点の秘密
+
+TODO: ズーム比較 (handover.md 4.1)
+
+* 接線は水平 (角はない) なのに曲率半径 $R \approx 2\sqrt{x} \to 0$
+* $C^1$ だが $C^2$ ではない
+
+---
+
+### で、現実はどうなの？
+
+TODO: まとめ (handover.md 3.5)
+
+* 理論は決定論を約束していない
+* 現実を救っているのはノイズと不完全さの方
+
+---
+
+### 補足: 数学的背景
+
+TODO: 概要欄送りの内容 (一意性定理) を補足スライドとしてここに置くか検討
+
+</textarea>
+      </section>
+    </div>
+  </div>
+
+  <script src="dist/reveal.js"></script>
+  <script src="plugin/notes/notes.js"></script>
+  <script src="plugin/markdown/markdown.js"></script>
+  <script src="plugin/highlight/highlight.js"></script>
+  <script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+      hash: true,
+
+      // Learn about plugins: https://revealjs.com/plugins/
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
+    });
+  </script>
+</body>
+
+</html>
