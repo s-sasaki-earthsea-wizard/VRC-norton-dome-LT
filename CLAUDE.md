@@ -78,7 +78,7 @@
 **重要**: Claude Codeを使用してコミットする場合は、必ず以下の署名を含める：
 
 ```text
-🤖 Generated with [Claude Code](https://claude.ai/code)
+🤖 Assisted by [Claude Code](https://claude.ai/code)
 
 Co-Authored-By: Claude <noreply@anthropic.com>
 ```
