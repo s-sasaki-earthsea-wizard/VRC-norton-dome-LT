@@ -27,8 +27,9 @@
       <section data-markdown data-separator="---">
         <textarea data-template>
 
-### ノートンのドーム
-#### 〜ニュートン力学は決定論ではない？〜
+### ボールは止まり続けてもいいし、
+### いつの間にか転がり出してもいい
+#### 〜ノートンのドームとニュートン力学の非決定論〜
 
 <!-- TODO: title image -->
 
@@ -60,25 +61,248 @@
 
 ---
 
-### つかみ
+## ニュートン力学と決定論
+
+---
+
+### ニュートン力学と決定論
 
 <div class="simple-box">
 
-TODO: フック
+* **ニュートン力学は現代科学の基礎中の基礎**
+* 月までロケットを飛ばせることもニュートン力学のおかげ
+* 同じ場所から同じ速度でロケットを飛ばせば必ず同じ場所に到着する
+* 限界はあるけど(ブラウン運動や量子力学、相対論)、身近な現象はニュートン力学で記述できる
 
-* ボールが**理由もきっかけもなく**、好きなタイミングで転がり出す
-* それをニュートン力学は禁止していない
+</div>
+
+<br>
+
+<div class="highlight-box">
+
+* **決定論**: 過去と現在が分かれば未来も決まる
+  * 同じ条件でロケットを飛ばしたのにその度に異なる結果になると困る！
 
 </div>
 
 ---
 
-### ただしカオスの話ではありません
+### ニュートンの運動方程式
 
-TODO: 二重振り子との違いの宣言
+<div class="simple-box">
 
-* 初期値鋭敏性: 初期値のわずかな差が拡大する (未来は一意)
-* 本テーマ: **初期値を完全に決めても未来が一意に決まらない**
+* ニュートンの運動方程式
+
+$$
+m \ddot{\vec{x}} = \vec{f}
+$$
+
+</div>
+
+<br>
+
+<div class="highlight-box">
+
+* 常微分方程式を解けば物体の運動はすべて予測できる
+
+</div>
+
+---
+
+### 簡単な例: 放物運動
+
+<div class="simple-box">
+
+* 物体に働く力は重力だけ → 下向きの加速度 $g$
+* **初期位置と初速度を決めて運動方程式を解けば、軌道はただ1つに決まる**
+
+</div>
+
+<img src="assets/images/projectile_trajectories.svg" alt="同じ位置・同じ速さで発射角だけ変えた3本の放物線" width="640">
+
+---
+
+### ノートンのドーム
+
+<div class="simple-box">
+
+* (ニュートン力学の適用範囲では) **微分方程式を解けば「たったひとつの未来」が正確にわかる (はず)**
+* 「このドームの頂点に置いたボールの動きは？」
+
+</div>
+
+<img src="assets/images/norton's-dome.png" height="350px">
+<div class="caption">Cited: Norton, John D. (2008). The Dome: An Unexpectedly Simple Failure of Determinism. Philosophy of Science 75 (5):786-798.
+</div>
+
+---
+
+## 微分方程式の解の一意性
+
+---
+
+### 簡単な微分方程式の例
+
+<div class="simple-box">
+$$
+\begin{equation*}
+  \begin{cases}
+    f'(t) = f(t) \\
+    f(0) = 1
+  \end{cases}
+\end{equation*}
+\Rightarrow f(t) = e^t
+$$
+
+</div>
+
+<br>
+
+<div class="highlight-box">
+
+* 微分方程式の解が1つに決まる
+  * 「解の一意性 (uniqueness)」と呼ぶ
+* 少しネタバレ: 右辺の $f$ がすごくいい性質を満たしている
+
+</div>
+
+---
+
+### 解が一意に決まらない微分方程式
+
+<div class="simple-box">
+$$
+\begin{equation*}
+  \begin{cases}
+    f'(t) = \sqrt{f(t)} \\
+    f(0) = 0
+  \end{cases}
+\end{equation*}
+\quad (x \geq 0)
+$$
+</div>
+
+<br>
+
+<div class="highlight-box">
+
+* 一見ありふれた何の変哲もない関数に見えるが…
+
+</div>
+
+---
+
+### 解1: いつまでも止まり続ける
+
+<div class="simple-box">
+
+$$ f(t) = 0 $$
+
+</div>
+
+<br>
+
+<div class="highlight-box">
+
+* この解をさっきの微分方程式に代入すると確かに成立する
+
+</div>
+
+---
+
+### 解2: ある時刻から動き出す
+
+<div class="simple-box">
+$$ f(t) = 
+\begin{equation*}
+  \begin{cases}
+    0 & (0 \leq t \leq T) \\
+    \dfrac{1}{4}(t-T)^2 & (t > T)
+  \end{cases}
+\end{equation*}
+$$
+
+</div>
+
+<br>
+
+<div class="caption">詳細はAppendix1を参照</div>
+
+<br>
+
+<div class="highlight-box">
+
+* 原点に止まり続け、時刻 $T$ で動き出す
+* $T$ は任意
+  * 1秒後に動いてもいいし、100億年先で止まっていてもいい $\to$ 数学として完全に正しい
+
+</div>
+
+---
+
+### なぜ一意性が破れるのか？
+
+<div class="simple-box">
+
+* $f$ は常に有限の傾きを保っている
+* $ \sqrt{f} $ は$0$に近づくとき接線が垂直に立ち上がる
+  * 傾き(微分係数)が無限大に発散
+
+</div>
+
+<img src="assets/images/force_sqrt_vs_linear.svg" alt="f=0近くで√fが垂直に立ち上がり、線形な右辺fより不釣り合いに大きくなる様子" width="640">
+
+---
+
+### 接線が垂直のとき何が起こるか？
+
+<div class="simple-box">
+
+* $f'$ が有界のとき: $0$ に近づくほど勢いが弱まり、抜け出すのに**無限の時間**がかかる
+* $f'$ が $\infty$ のとき: $0$ の近くでも勢いが残り、**有限の時間**で抜け出せる
+
+
+</div>
+
+---
+
+### 有限時間での到達
+
+<div class="highlight-box">
+
+* $f$ が $0$ から $1$ に到達する時間 $\tau_1 = \displaystyle\int_0^1 \frac{df}{\dot f}$ を計算する
+
+$$ \dot f = f \;\;\Rightarrow\;\; \tau_1 = \int_0^1 \frac{1}{f}\, df = \infty \quad(\text{到達できない})$$
+
+$$ \dot f = \sqrt{f} \;\;\Rightarrow\;\; \tau_1 = \int_0^1 \frac{1}{\sqrt{f}}\, df = 2 \quad(\text{有限時間で到達})$$
+
+</div>
+
+---
+
+<br>
+
+<div class="highlight-box">
+
+* 有限時間で出入りできる $\Rightarrow$ 時間を逆回しすると「頂点でちょうど静止」する運動が完結する
+* 系は時間に陽に依存しない（自励的）$\Rightarrow$ 静止をやめる時刻 $t_0$ は**いつでもよい**
+* $\Rightarrow$ 同じ初期条件から無数の解（$t_0$ をパラメータとする解の族）
+
+$$
+f(t) = 
+\begin{cases} 0 & (t \le t_0) \\
+\dfrac{(t-t_0)^2}{4} & (t > t_0)
+\end{cases}
+\quad {}^{\forall} t_0 \ge 0 
+$$
+
+</div>
+
+---
+
+## ノートンのドーム
+### 微分方程式の解の一意性が
+### ニュートン力学で敗れるとき？
 
 ---
 
@@ -86,7 +310,7 @@ TODO: 二重振り子との違いの宣言
 
 TODO: 逆算設計の物語 (docs/handover.md 2.)
 
-$$ h(r) = -\frac{2b^2}{3g} r^{3/2}, \qquad \ddot{r} = b^2\sqrt{r} $$
+$$ h(r) = -\frac{2}{3g} r^{3/2}, \qquad f = \ddot{r} = \sqrt{r} $$
 
 ---
 
@@ -128,6 +352,97 @@ TODO: まとめ (handover.md 3.5)
 ### 補足: 数学的背景
 
 TODO: 概要欄送りの内容 (一意性定理) を補足スライドとしてここに置くか検討
+
+---
+
+## Appendix
+
+---
+
+### Appendix 1
+$f'(t)=\sqrt{f(t)}$ の解の導出
+
+---
+
+<div class="simple-box">
+$$
+\begin{equation*}
+  \begin{cases}
+    f'(t) = \sqrt{f(t)} \\
+    f(0) = 0
+  \end{cases}
+\end{equation*}
+\quad (x \geq 0)
+$$
+</div>
+
+<br>
+
+<div class="highlight-box">
+
+* 以下のように変数分離
+
+$$ 
+\frac{df}{\sqrt{f}} = dt
+$$
+
+</div>
+
+---
+
+<div class="simple-box">
+
+両辺を積分
+
+$$ 
+\int \frac{df}{\sqrt{f}} = \int dt
+$$
+
+$$ 
+2\sqrt{f} = t + C
+$$
+
+$$ 
+f(t) = \frac{(t+C)^2}{4}
+$$
+
+</div>
+
+---
+
+<div class="simple-box">
+
+* 初期条件 $f(0)=0$ を代入
+
+$$
+f(0) = \frac{C^2}{4} = 0
+\Rightarrow C =0
+$$
+
+</div>
+
+<br>
+
+<div class="highlight-box">
+
+* $f(t) = \dfrac{t^2}{4}$ が解の1つとして得られる (一般解)
+* 自明解は $ f(t) = 0 $
+
+</div>
+
+---
+
+### なぜ2つの解が共存するのか？
+
+<div class="simple-box">
+
+* 一般解に $t=0$ を代入すると自明解と一致
+  * $ 0^2 / 4 =0 $
+* 自明解と一般解がそれぞれ成り立つ
+* 自明解から一般解への遷移は任意
+
+</div>
+
 
 </textarea>
       </section>

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 470" font-family="'Helvetica Neue', Arial, 'Hiragino Sans', sans-serif">
+  <defs>
+    <!-- arrowhead for coordinate axes -->
+    <marker id="axisArrow" markerWidth="10" markerHeight="10" refX="7" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#555"/>
+    </marker>
+    <!-- double-headed arrow for the gap annotation -->
+    <marker id="gapArrow" markerWidth="9" markerHeight="9" refX="4.5" refY="3" orient="auto">
+      <path d="M0,0 L6.5,3 L0,6 Z" fill="#7f8c8d"/>
+    </marker>
+  </defs>
+
+  <!-- card background -->
+  <rect x="0" y="0" width="760" height="470" rx="14" fill="#ffffff"/>
+
+  <!-- coordinate axes -->
+  <line x1="90" y1="380" x2="710" y2="380" stroke="#555" stroke-width="2" marker-end="url(#axisArrow)"/>
+  <line x1="90" y1="380" x2="90" y2="50" stroke="#555" stroke-width="2" marker-end="url(#axisArrow)"/>
+  <text x="702" y="405" fill="#555" font-size="20" text-anchor="end">f</text>
+  <text x="100" y="62" fill="#555" font-size="19">右辺の値</text>
+  <text x="74" y="402" fill="#555" font-size="18" text-anchor="middle">O</text>
+
+  <!-- well-behaved right-hand side: g(f) = f (straight line, the unique-solution case) -->
+  <line x1="90" y1="380" x2="710" y2="80" fill="none" stroke="#2980b9" stroke-width="3.5"/>
+
+  <!-- ill-behaved right-hand side: g(f) = sqrt(f), vertical tangent at f = 0 -->
+  <polyline points="90,380 96.2,350 114.8,320 145.8,290 189.2,260 245,230 313.2,200 393.8,170 486.8,140 592.2,110 710,80"
+            fill="none" stroke="#c0392b" stroke-width="3.5" stroke-linejoin="round"/>
+
+  <!-- comparison at a small f: sqrt(f) is disproportionately large -->
+  <line x1="145.8" y1="380" x2="145.8" y2="290" stroke="#bbb" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <text x="145.8" y="400" fill="#888" font-size="16" text-anchor="middle">小さな f</text>
+  <circle cx="145.8" cy="353" r="5" fill="#2980b9"/>
+  <circle cx="145.8" cy="290" r="5" fill="#c0392b"/>
+  <!-- gap double-arrow between the two curves -->
+  <line x1="172" y1="353" x2="172" y2="290" stroke="#7f8c8d" stroke-width="1.8"
+        marker-start="url(#gapArrow)" marker-end="url(#gapArrow)"/>
+  <text x="182" y="327" fill="#555" font-size="19">同じ f でも</text>
+  <text x="182" y="349" fill="#c0392b" font-size="19" font-weight="bold">&#8730;f &#8811; f</text>
+
+  <!-- vertical-tangent callout at the origin -->
+  <text x="118" y="150" fill="#c0392b" font-size="17">f = 0 で接線が垂直</text>
+  <text x="118" y="170" fill="#c0392b" font-size="13">(傾きが無限大)</text>
+  <path d="M 150 178 Q 120 250 99 320" fill="none" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+  <!-- legend -->
+  <g font-size="19">
+    <line x1="430" y1="250" x2="470" y2="250" stroke="#c0392b" stroke-width="3.5"/>
+    <text x="480" y="256" fill="#333">解が分裂: &#8730;f</text>
+    <line x1="430" y1="280" x2="470" y2="280" stroke="#2980b9" stroke-width="3.5"/>
+    <text x="480" y="286" fill="#333">解が一意: f</text>
+  </g>
+
+  <!-- bilingual caption -->
+  <text x="380" y="445" fill="#222" font-size="22" font-weight="bold" text-anchor="middle">ゼロ近くで √f が垂直に立ち上がる</text>
+  <text x="380" y="465" fill="#777" font-size="16" text-anchor="middle">Near zero, &#8730;f rises vertically &#8212; this is what breaks uniqueness</text>
+</svg>
