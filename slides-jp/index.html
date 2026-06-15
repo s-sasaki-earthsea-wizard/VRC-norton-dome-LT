@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-  <title>ノートンのドーム 〜ニュートン力学は決定論ではない？〜</title>
+  <title>ボールは止まり続けてもいいし、転がり出してもいい 〜ノートンのドームとニュートン力学の非決定論〜</title>
 
   <link rel="stylesheet" href="dist/reset.css">
   <link rel="stylesheet" href="dist/reveal.css">
@@ -28,7 +28,7 @@
         <textarea data-template>
 
 ### ボールは止まり続けてもいいし、
-### いつの間にか転がり出してもいい
+### 転がり出してもいい
 #### 〜ノートンのドームとニュートン力学の非決定論〜
 
 <!-- TODO: title image -->
@@ -187,12 +187,13 @@ $$
 <div class="highlight-box">
 
 * 一見ありふれた何の変哲もない関数に見えるが…
+* **2つの解が矛盾なく両立する！**
 
 </div>
 
 ---
 
-### 解1: いつまでも止まり続ける
+### 自明解: いつまでも止まり続ける
 
 <div class="simple-box">
 
@@ -206,35 +207,86 @@ $$ f(t) = 0 $$
 
 * この解をさっきの微分方程式に代入すると確かに成立する
 
+$$ f'(0) = \sqrt{f(0)} =0 $$
+
 </div>
 
 ---
 
-### 解2: ある時刻から動き出す
+### 一般解: 放物線
 
 <div class="simple-box">
-$$ f(t) = 
-\begin{equation*}
-  \begin{cases}
-    0 & (0 \leq t \leq T) \\
-    \dfrac{1}{4}(t-T)^2 & (t > T)
-  \end{cases}
-\end{equation*}
-$$
-
+$$ f(t) = \dfrac{t^2}{4} $$
 </div>
-
-<br>
-
-<div class="caption">詳細はAppendix1を参照</div>
 
 <br>
 
 <div class="highlight-box">
 
-* 原点に止まり続け、時刻 $T$ で動き出す
-* $T$ は任意
-  * 1秒後に動いてもいいし、100億年先で止まっていてもいい $\to$ 数学として完全に正しい
+* この式も微分方程式に代入すると確かに成立する
+
+$$ f'(t) = \dfrac{t}{2} $$
+$$\sqrt{f(t)} =\sqrt{\dfrac{t^2}{4}} = \dfrac{t}{2}$$
+
+</div>
+
+---
+
+### 自明解と一般解は「つながる」
+
+<div class="simple-box">
+
+* 一般解 $f(t) = t^2/4$ は $t=0$ のとき $f(0) = 0$
+* 自明解 $ f(t) = 0 $ と任意の時刻 $\tau$ でつなげられる
+* いつでも0から離れる解が存在できる
+
+</div>
+
+<br>
+
+<div class="highlight-box">
+$$ f(t) = 
+\begin{equation*}
+  \begin{cases}
+    0 & (0 \leq t \leq \tau) \\
+    \dfrac{1}{4}(t-\tau)^2 & (t > \tau)
+  \end{cases}
+\end{equation*} 
+$$
+</div>
+
+---
+
+### 解の一意性の破れ
+
+<div class="highlight-box">
+
+* 原点に止まり続け、任意の時刻 $\tau$ で動き出す
+* 時刻 $\tau$ は任意
+  * 1秒後に動いてもいいし、100億年先まで止まっていてもいい $\to$ 数学として完全に正しい
+* 微分方程式の解が1つに定まらない
+  * 解の一意性が成立しない
+
+</div>
+
+---
+
+### 解が一意な微分方程式との違い
+
+<div class="simple-box">
+
+* $f'(t) = f(t) \Rightarrow f(t) = C e^t$
+
+</div>
+
+<br>
+
+<div class="highlight-box">
+
+* 積分定数 $C=0$ のとき自明解 $f(t) = 0 $
+  * 自明解は一般解の特殊なケース
+* $C \neq 0$ のときは自明解と重なる点を持たない
+  * 自明解 $0$ に漸近できるが到達はできない
 
 </div>
 
@@ -266,15 +318,15 @@ $$
 
 ---
 
-### 有限時間での到達
+### 0からの脱出時間
 
 <div class="highlight-box">
 
-* $f$ が $0$ から $1$ に到達する時間 $\tau_1 = \displaystyle\int_0^1 \frac{df}{\dot f}$ を計算する
+* $f$ が $0$ から $\varepsilon$ に到達する時間 $\tau(\varepsilon) = \displaystyle\int_0^\varepsilon \frac{df}{f'}$ を計算する
 
-$$ \dot f = f \;\;\Rightarrow\;\; \tau_1 = \int_0^1 \frac{1}{f}\, df = \infty \quad(\text{到達できない})$$
+$$ f' = f \Rightarrow \tau(\varepsilon) = \int_0^\varepsilon \frac{df}{f} = \infty $$
 
-$$ \dot f = \sqrt{f} \;\;\Rightarrow\;\; \tau_1 = \int_0^1 \frac{1}{\sqrt{f}}\, df = 2 \quad(\text{有限時間で到達})$$
+$$ f' = \sqrt{f} \Rightarrow \tau(\varepsilon) = \int_0^\varepsilon \frac{df}{\sqrt{f}} = 2\sqrt{\varepsilon} $$
 
 </div>
 
@@ -300,17 +352,132 @@ $$
 
 ---
 
-## ノートンのドーム
-### 微分方程式の解の一意性が
-### ニュートン力学で敗れるとき？
+### より詳しく知りたい人のために
+
+<div class="simple-box">
+
+以下のキーワードで調べると理解が深まるはず！
+
+* 「連続」と「リプシッツ連続」の違い
+* ペアノの存在定理
+* ピカール=リンデレフの定理
+* リプシッツ条件とオズグッド条件
+
+</div>
 
 ---
 
-### 不可能を起こす丘を設計する
+## ノートンのドーム
+### 微分方程式の解の一意性が
+### ニュートン力学で破れる？
 
-TODO: 逆算設計の物語 (docs/handover.md 2.)
+---
 
-$$ h(r) = -\frac{2}{3g} r^{3/2}, \qquad f = \ddot{r} = \sqrt{r} $$
+### 働く力が $\sqrt{r}$ のドーム
+
+<div class="simple-box">
+
+次のような形のドームを考える
+
+$$ h(r) = -\frac{2}{3g} r^{3/2} $$
+
+</div>
+
+<img src="assets/images/norton's-dome.png" height="300px">
+
+---
+
+### ドームの頂点にボールを置くと？
+
+<div class="simple-box">
+
+単位質点に働く力は
+
+$$ f = r'' = \sqrt{r} $$
+
+時刻 $t=0$ に頂点 $r=0$ にボールを置く
+
+</div>
+
+<br>
+
+<div class="highlight-box">
+
+* ボールの運動は？
+  * 運動方程式が解の一意性を持っていない...？
+
+</div>
+
+---
+
+### 決められないボールの未来
+
+<div class="simple-box">
+
+* 頂点に置かれたボールは、永遠に止まり続ける解が成立する
+* 時刻 $\tau$ まで静止してから動き出す解も成立する
+  * しかもその $\tau$ がいつなのかわからない
+</div>
+
+<br>
+
+<div class="highlight-box">
+$$ f(t) = 0 $$
+$$ f(t) = 
+\begin{equation*}
+  \begin{cases}
+    0 & (0 \leq t \leq \tau) \\
+    \dfrac{1}{144}(t-\tau)^4 & (t > \tau)
+  \end{cases}
+\end{equation*} 
+$$
+</div>
+
+---
+
+### ニュートン力学の中の非決定論
+
+<div class="simple-box">
+
+* このドームは完全にニュートン力学のみで記述できる
+* しかしボールの未来は決定論で議論できない
+* ニュートン力学は微分方程式を解いて未来を予測できる (と信じられて実際にそれがうまくいっている) $\to$ 決定論的
+* しかし、解が一意に定まらない！ $\to$ 非決定論的
+
+</div>
+
+<br>
+
+<div class="highlight-box">
+
+* ノートンの主張
+
+**「ニュートン力学は不確実性を含む」**
+
+</div>
+
+---
+
+### ノートンへの批判と再反論
+
+<div class="simple-box">
+
+* 数学的に過度な理想化をしている
+  * $\to$ 
+
+</div>
+
+<br>
+
+<div class="highlight-box">
+
+* 決着のついていない議論
+
+</div>
+
+---
+
+### 実際どうなの？
 
 ---
 
