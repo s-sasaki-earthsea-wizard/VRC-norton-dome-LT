@@ -690,6 +690,155 @@ $$
 
 ---
 
+### Appendix 3
+ノートンのドームの方程式 $r''(t)=\sqrt{r(t)}$ の解の導出
+
+---
+
+### 2階の微分方程式を解く
+
+<div class="simple-box">
+
+ノートンのドームの運動方程式そのもの
+
+$$
+\begin{equation*}
+  \begin{cases}
+    r''(t) = \sqrt{r(t)} \\\\
+    r(0) = 0,\quad r'(0) = 0
+  \end{cases}
+\end{equation*}
+$$
+
+</div>
+
+<br>
+
+<div class="highlight-box">
+
+* 2階の方程式なのでこのままでは変数分離できない
+* まず **階数を下げる**
+
+</div>
+
+---
+
+### 両辺に $r'$ を掛ける
+
+<div class="simple-box">
+
+$$ r'' \, r' = \sqrt{r}\, r' $$
+
+両辺がそれぞれ「時間微分の形」になる
+
+$$
+\frac{d}{dt}\left[\frac{1}{2}(r')^2\right]
+= \frac{d}{dt}\left[\frac{2}{3} r^{3/2}\right]
+$$
+
+</div>
+
+<br>
+
+<div class="highlight-box">
+
+* 左辺は運動エネルギー、右辺は位置エネルギー
+* つまり **エネルギー保存則** を作っている
+
+</div>
+
+---
+
+### 積分して階数を下げる
+
+<div class="simple-box">
+
+両辺を時間で積分
+
+$$ \frac{1}{2}(r')^2 = \frac{2}{3} r^{3/2} + C $$
+
+初期条件 $r(0)=0,\; r'(0)=0$ を代入すると $C=0$（全エネルギー0）
+
+$$ (r')^2 = \frac{4}{3} r^{3/2} $$
+
+</div>
+
+<br>
+
+<div class="highlight-box">
+
+* 2階の方程式が **1階の方程式** になった！
+
+</div>
+
+---
+
+### 変数分離して積分
+
+<div class="simple-box">
+
+$$ r' = \frac{2}{\sqrt{3}} r^{3/4} $$
+
+$$ \frac{dr}{r^{3/4}} = \frac{2}{\sqrt{3}} dt $$
+
+両辺を積分
+
+$$ 4 r^{1/4} = \frac{2}{\sqrt{3}} t + C' $$
+
+</div>
+
+---
+
+### 初期条件を代入
+
+<div class="simple-box">
+
+$r(0)=0$ より $C'=0$
+
+$$ r^{1/4} = \frac{1}{2\sqrt{3}} t $$
+
+$$ r(t) = \frac{t^4}{(2\sqrt{3})^4} = \frac{t^4}{144} $$
+
+</div>
+
+<br>
+
+<div class="highlight-box">
+
+* 一般解 $r(t) = \dfrac{t^4}{144}$ が得られた
+* もちろん自明解 $r(t)=0$ も成立する
+
+</div>
+
+---
+
+### 任意の時刻で動き出す解
+
+<div class="simple-box">
+
+* 系は時間に陽に依存しない（自励系）
+* $\Rightarrow$ 動き出す時刻を任意の $\tau$ にずらせる
+
+</div>
+
+<br>
+
+<div class="highlight-box">
+
+$$
+r(t) =
+\begin{equation*}
+  \begin{cases}
+    0 & (0 \leq t \leq \tau) \\\\
+    \dfrac{1}{144}(t-\tau)^4 & (t > \tau)
+  \end{cases}
+\end{equation*}
+$$
+
+</div>
+
+---
+
 ### より詳しく知りたい人のために
 
 <div class="simple-box">
