@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="'Helvetica Neue', Arial, 'Hiragino Sans', sans-serif">
+  <defs>
+    <!-- Arrowhead for coordinate axes. -->
+    <marker id="axisArrow" markerWidth="10" markerHeight="10" refX="7" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#555"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="960" height="520" rx="14" fill="#ffffff"/>
+
+  <text x="480" y="45" fill="#222" font-size="28" font-weight="bold" text-anchor="middle">似ている関数も、微分すると性格が見えてくる</text>
+  <text x="480" y="75" fill="#666" font-size="18" text-anchor="middle">Compare f(x), f'(x), and f''(x) near the origin</text>
+
+  <!-- Panel backgrounds. -->
+  <rect x="45" y="105" width="300" height="335" rx="10" fill="#f8f9fa" stroke="#dfe5ec"/>
+  <rect x="330" y="105" width="300" height="335" rx="10" fill="#f8f9fa" stroke="#dfe5ec"/>
+  <rect x="615" y="105" width="300" height="335" rx="10" fill="#f8f9fa" stroke="#dfe5ec"/>
+
+  <!-- Panel titles. -->
+  <text x="195" y="135" fill="#222" font-size="22" font-weight="bold" text-anchor="middle">関数 f(x)</text>
+  <text x="480" y="135" fill="#222" font-size="22" font-weight="bold" text-anchor="middle">1階微分 f'(x)</text>
+  <text x="765" y="135" fill="#222" font-size="22" font-weight="bold" text-anchor="middle">2階微分 f''(x)</text>
+
+  <!-- Panel 1 axes: f(x), y in [0, 1]. -->
+  <line x1="75" y1="390" x2="320" y2="390" stroke="#555" stroke-width="1.8" marker-end="url(#axisArrow)"/>
+  <line x1="195" y1="400" x2="195" y2="155" stroke="#555" stroke-width="1.8" marker-end="url(#axisArrow)"/>
+  <text x="317" y="414" fill="#555" font-size="15" text-anchor="end">x</text>
+  <text x="205" y="167" fill="#555" font-size="15">f</text>
+  <text x="195" y="412" fill="#777" font-size="13" text-anchor="middle">0</text>
+
+  <!-- f(x)=x^2 -->
+  <polyline points="75,170 99,249.2 123,310.8 147,354.8 171,381.2 195,390 219,381.2 243,354.8 267,310.8 291,249.2 315,170"
+            fill="none" stroke="#2980b9" stroke-width="3.5" stroke-linejoin="round"/>
+  <!-- f(x)=2/3|x|^(3/2) -->
+  <polyline points="75,243.3 99,285.0 123,321.8 147,352.9 171,376.9 195,390 219,376.9 243,352.9 267,321.8 291,285.0 315,243.3"
+            fill="none" stroke="#c0392b" stroke-width="3.5" stroke-linejoin="round"/>
+  <circle cx="195" cy="390" r="5" fill="#333"/>
+  <text x="70" y="163" fill="#2980b9" font-size="15">x²</text>
+  <text x="78" y="238" fill="#c0392b" font-size="15">⅔|x|³ᐟ²</text>
+  <text x="195" y="426" fill="#555" font-size="16" text-anchor="middle">どちらも原点で水平</text>
+
+  <!-- Panel 2 axes: f'(x), y in [-2, 2]. -->
+  <line x1="360" y1="270" x2="605" y2="270" stroke="#555" stroke-width="1.8" marker-end="url(#axisArrow)"/>
+  <line x1="480" y1="395" x2="480" y2="150" stroke="#555" stroke-width="1.8" marker-end="url(#axisArrow)"/>
+  <text x="602" y="294" fill="#555" font-size="15" text-anchor="end">x</text>
+  <text x="490" y="162" fill="#555" font-size="15">f'</text>
+  <text x="480" y="292" fill="#777" font-size="13" text-anchor="middle">0</text>
+
+  <!-- f'(x)=2x -->
+  <line x1="360" y1="380" x2="600" y2="160" stroke="#2980b9" stroke-width="3.5"/>
+  <!-- f'(x)=sgn(x)sqrt(|x|) -->
+  <polyline points="360,325.0 384,319.2 408,312.6 432,304.8 456,294.6 474,282.3 480,270 486,257.7 504,245.4 528,235.2 552,227.4 576,220.8 600,215.0"
+            fill="none" stroke="#c0392b" stroke-width="3.5" stroke-linejoin="round"/>
+  <circle cx="480" cy="270" r="5" fill="#333"/>
+  <text x="365" y="185" fill="#2980b9" font-size="15">2x</text>
+  <text x="505" y="248" fill="#c0392b" font-size="15">sgn(x)√|x|</text>
+  <text x="480" y="426" fill="#555" font-size="16" text-anchor="middle">接線は水平、でも次が怪しい</text>
+
+  <!-- Panel 3 axes: f''(x), y in [0, 4]. -->
+  <line x1="645" y1="390" x2="890" y2="390" stroke="#555" stroke-width="1.8" marker-end="url(#axisArrow)"/>
+  <line x1="765" y1="400" x2="765" y2="155" stroke="#555" stroke-width="1.8" marker-end="url(#axisArrow)"/>
+  <text x="887" y="414" fill="#555" font-size="15" text-anchor="end">x</text>
+  <text x="775" y="167" fill="#555" font-size="15">f''</text>
+  <text x="765" y="412" fill="#777" font-size="13" text-anchor="middle">0</text>
+
+  <!-- f''(x)=2 -->
+  <line x1="645" y1="280" x2="885" y2="280" stroke="#2980b9" stroke-width="3.5"/>
+  <!-- f''(x)=1/(2sqrt(|x|)); undefined and unbounded at x=0. -->
+  <polyline points="645,362.5 669,359.3 693,354.5 717,346.5 741,328.5 753,303.0 759,267.0 762.6,195.5"
+            fill="none" stroke="#c0392b" stroke-width="3.5" stroke-linejoin="round"/>
+  <polyline points="767.4,195.5 771,267.0 777,303.0 789,328.5 813,346.5 837,354.5 861,359.3 885,362.5"
+            fill="none" stroke="#c0392b" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M 765 205 L 765 160" stroke="#c0392b" stroke-width="2.2" marker-end="url(#axisArrow)"/>
+  <text x="777" y="190" fill="#c0392b" font-size="20" font-weight="bold">∞</text>
+  <text x="650" y="272" fill="#2980b9" font-size="15">2</text>
+  <text x="804" y="336" fill="#c0392b" font-size="15">1/(2√|x|)</text>
+  <text x="765" y="426" fill="#555" font-size="16" text-anchor="middle">2階微分が原点で発散</text>
+
+  <!-- Legend. -->
+  <g font-size="18">
+    <line x1="287" y1="470" x2="327" y2="470" stroke="#2980b9" stroke-width="3.5"/>
+    <text x="338" y="476" fill="#333">f(x) = x²</text>
+    <line x1="500" y1="470" x2="540" y2="470" stroke="#c0392b" stroke-width="3.5"/>
+    <text x="551" y="476" fill="#333">f(x) = ⅔|x|³ᐟ²</text>
+  </g>
+</svg>

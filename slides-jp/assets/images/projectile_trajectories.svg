@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 470" font-family="'Helvetica Neue', Arial, 'Hiragino Sans', sans-serif">
+  <defs>
+    <!-- arrowhead for coordinate axes -->
+    <marker id="axisArrow" markerWidth="10" markerHeight="10" refX="7" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#555"/>
+    </marker>
+    <!-- arrowhead for initial velocity vectors -->
+    <marker id="velArrow" markerWidth="9" markerHeight="9" refX="6.5" refY="3" orient="auto">
+      <path d="M0,0 L6.5,3 L0,6 Z" fill="#333"/>
+    </marker>
+  </defs>
+
+  <!-- card background -->
+  <rect x="0" y="0" width="760" height="470" rx="14" fill="#ffffff"/>
+
+  <!-- coordinate axes -->
+  <line x1="90" y1="380" x2="710" y2="380" stroke="#555" stroke-width="2" marker-end="url(#axisArrow)"/>
+  <line x1="90" y1="380" x2="90" y2="50" stroke="#555" stroke-width="2" marker-end="url(#axisArrow)"/>
+  <text x="702" y="405" fill="#555" font-size="20" text-anchor="end">水平距離 x</text>
+  <text x="100" y="62" fill="#555" font-size="20">高さ y</text>
+  <text x="74" y="402" fill="#555" font-size="18" text-anchor="middle">O</text>
+
+  <!-- trajectories: same launch point & speed, different angle -->
+  <!-- 30 deg -->
+  <path d="M 90 380 Q 332.5 260 575 380" fill="none" stroke="#e67e22" stroke-width="3.5"/>
+  <!-- 45 deg -->
+  <path d="M 90 380 Q 370 140 650 380" fill="none" stroke="#c0392b" stroke-width="3.5"/>
+  <!-- 55 deg -->
+  <path d="M 90 380 Q 353 58 616 380" fill="none" stroke="#2980b9" stroke-width="3.5"/>
+
+  <!-- initial velocity vectors (all from the same point) -->
+  <line x1="90" y1="380" x2="151" y2="345" stroke="#333" stroke-width="2.5" marker-end="url(#velArrow)"/>
+  <line x1="90" y1="380" x2="140" y2="331" stroke="#333" stroke-width="2.5" marker-end="url(#velArrow)"/>
+  <line x1="90" y1="380" x2="130" y2="323" stroke="#333" stroke-width="2.5" marker-end="url(#velArrow)"/>
+  <text x="158" y="338" fill="#333" font-size="20" font-style="italic">v₀</text>
+
+  <!-- launch point marker -->
+  <circle cx="90" cy="380" r="6" fill="#333"/>
+
+  <!-- legend -->
+  <g font-size="19">
+    <line x1="470" y1="92" x2="510" y2="92" stroke="#e67e22" stroke-width="3.5"/>
+    <text x="520" y="98" fill="#333">発射角 30°</text>
+    <line x1="470" y1="120" x2="510" y2="120" stroke="#c0392b" stroke-width="3.5"/>
+    <text x="520" y="126" fill="#333">発射角 45°</text>
+    <line x1="470" y1="148" x2="510" y2="148" stroke="#2980b9" stroke-width="3.5"/>
+    <text x="520" y="154" fill="#333">発射角 55°</text>
+  </g>
+
+  <!-- bilingual caption -->
+  <text x="380" y="445" fill="#222" font-size="22" font-weight="bold" text-anchor="middle">初期条件を1つ決めれば、軌道はただ1つに決まる</text>
+  <text x="380" y="465" fill="#777" font-size="16" text-anchor="middle">One initial condition determines one unique trajectory</text>
+</svg>
